@@ -1,0 +1,9 @@
+region
+South Florida      8397.97
+Southeast          6353.59
+Central Florida    3936.32
+Southwest          3031.21
+Northeast          1672.86
+Midwest            1391.51
+North Florida       826.06
+Name: revenue, dtype: float64
