@@ -16,6 +16,12 @@
 2. Which regions generate the highest returned revenue?
 3. Do returned orders have worse average revenue, profit, and profit margins than non-returned orders?
 4. What percentage of total revenue came from returned orders?
+5. How many total orders does each product have?
+6. How many returned orders does each product have?
+7. How many total orders does each region have?
+8. How many returned orders does each region have?
+9. What is the return rate per region?
+10. What percentage does each region take up in total returned orders?
 
 ## Key Findings
 - Laptops have the highest return value
