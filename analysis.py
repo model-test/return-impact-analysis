@@ -81,8 +81,8 @@ total_returned_revenue = pd.read_sql_query(query, conn)
 #print(total_returned_revenue)
 
 total_returned_revenue_percentage = round(
-    total_returned_revenue["total_returned_revenue"].iloc[0] / total_revenue["total_revenue"].iloc[0], 2
-) * 100
+    total_returned_revenue["total_returned_revenue"].iloc[0] / total_revenue["total_revenue"].iloc[0] * 100, 2
+)
 
 # 4% of total revenue came from returned orders
 #print(total_returned_revenue_percentage)
@@ -109,19 +109,19 @@ To find out which, it'd be worth checking how many returned orders came from eac
 
 # How many total orders does each product have?
 product_order_count = df.groupby("product").size().sort_values(ascending=False)
-print(product_order_count)
+#print(product_order_count)
 
 
 # How many returned orders does each product have?
 returned_order_count = returns_df.groupby("product").size().sort_values(ascending=False)
-print(returned_order_count)
+#print(returned_order_count)
 
 
 # Calculation for return rate
 return_rate = (returned_order_count / product_order_count * 100).fillna(0).sort_values(ascending=False)
 
 # Webcam has the highest return rate
-print(return_rate)
+#print(return_rate)
 
 
 """
@@ -131,4 +131,32 @@ FINDINGS:
 3. Webcam has the highest return rate despite it being returned only 5 times
 4. Webcam is the worst-performing product proportionately due to its high return rate and lower total returns (Implementing a customer review system may allow for the business to identify why certain products experience higher return rates)
 5. Docking Station is the best-performing product proportionately due to it having a return rate of 0% while still having existing orders
+"""
+
+#-------------------------
+# Regional Return Rate Analysis
+#-------------------------
+
+regional_order_count = df.groupby("region")["product"].size().sort_values(ascending=False)
+
+regional_returned_count = returns_df.groupby("region")["product"].size().sort_values(ascending=False)
+
+regional_return_rate = (regional_returned_count / regional_order_count * 100).fillna(0).sort_values(ascending=False)
+
+print(regional_order_count)
+print(regional_returned_count)
+print(regional_return_rate)
+
+regional_returned_revenue_percentage = round(regional_returns_revenue / total_returned_revenue["total_returned_revenue"].iloc[0] * 100, 2).sort_values(ascending=False)
+
+print(regional_returned_revenue_percentage)
+
+
+"""
+FINDINGS:
+1. Southeast has the most total orders, North Florida has the least.
+2. South Florida and Southeast are tied for most total returned orders, North Florida has the least.
+3. Southwest is the proportionately worst-performing region due to it having an 8.75% return rate despite having only been returned 7 times
+4. South Florida is the region accounting for most of the total revenue of returned orders
+5. North Florida is the proportionately best-performing region due to it having a 1.3% return rate while having 73 total orders and only 1 return
 """
