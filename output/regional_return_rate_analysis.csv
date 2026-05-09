@@ -1,0 +1,43 @@
+Total Order Count per Region:
+region
+Southeast          176
+South Florida      163
+Central Florida    148
+Midwest             82
+Southwest           80
+Northeast           78
+North Florida       73
+Name: product, dtype: int64
+
+Total Returned Order Count per Region:
+region
+South Florida      11
+Southeast          11
+Southwest           7
+Northeast           6
+Central Florida     5
+Midwest             3
+North Florida       1
+Name: product, dtype: int64
+
+Return Rate per Region:
+region
+Southwest          8.750000
+Northeast          7.692308
+South Florida      6.748466
+Southeast          6.250000
+Midwest            3.658537
+Central Florida    3.378378
+North Florida      1.369863
+Name: product, dtype: float64
+
+Total Returned Revenue Percentage per Region:
+region
+South Florida      32.79
+Southeast          24.81
+Central Florida    15.37
+Southwest          11.84
+Northeast           6.53
+Midwest             5.43
+North Florida       3.23
+Name: revenue, dtype: float64
