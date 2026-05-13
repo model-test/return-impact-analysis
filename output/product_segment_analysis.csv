@@ -1,0 +1,91 @@
+How many total orders exist for each segment-product combination:
+   customer_segment          product  order_count
+5          Consumer            Mouse           42
+2          Consumer         Keyboard           35
+3          Consumer           Laptop           33
+1          Consumer       Headphones           25
+4          Consumer          Monitor           25
+0          Consumer  Docking Station           15
+7          Consumer           Webcam           15
+6          Consumer           Tablet            5
+10        Education         Keyboard           42
+12        Education          Monitor           42
+13        Education            Mouse           42
+11        Education           Laptop           29
+9         Education       Headphones           17
+14        Education           Tablet           12
+15        Education           Webcam           11
+8         Education  Docking Station           10
+19       Enterprise           Laptop           45
+21       Enterprise            Mouse           44
+18       Enterprise         Keyboard           37
+20       Enterprise          Monitor           35
+17       Enterprise       Headphones           25
+22       Enterprise           Tablet           17
+16       Enterprise  Docking Station           15
+23       Enterprise           Webcam            9
+26   Small Business         Keyboard           37
+29   Small Business            Mouse           34
+25   Small Business       Headphones           27
+27   Small Business           Laptop           27
+28   Small Business          Monitor           21
+30   Small Business           Tablet           12
+31   Small Business           Webcam            9
+24   Small Business  Docking Station            6
+
+How many returned orders exist for each segment-product combination:
+   customer_segment     product  order_count
+2          Consumer      Laptop            2
+3          Consumer     Monitor            2
+4          Consumer       Mouse            2
+5          Consumer      Webcam            2
+0          Consumer  Headphones            1
+1          Consumer    Keyboard            1
+6         Education    Keyboard            6
+8         Education     Monitor            2
+9         Education       Mouse            2
+10        Education      Webcam            2
+7         Education      Laptop            1
+11       Enterprise    Keyboard            4
+13       Enterprise     Monitor            4
+14       Enterprise       Mouse            3
+12       Enterprise      Laptop            1
+15       Enterprise      Tablet            1
+16       Enterprise      Webcam            1
+19   Small Business     Monitor            3
+18   Small Business    Keyboard            2
+17   Small Business  Headphones            1
+20   Small Business       Mouse            1
+
+Return Rate calculations per product per customer segment:
+   customer_segment          product  order_count_total  order_count_return  return_rate
+6          Consumer           Webcam                 15                 2.0    13.333333
+4          Consumer          Monitor                 25                 2.0     8.000000
+2          Consumer           Laptop                 33                 2.0     6.060606
+0          Consumer            Mouse                 42                 2.0     4.761905
+3          Consumer       Headphones                 25                 1.0     4.000000
+1          Consumer         Keyboard                 35                 1.0     2.857143
+5          Consumer  Docking Station                 15                 0.0     0.000000
+7          Consumer           Tablet                  5                 0.0     0.000000
+14        Education           Webcam                 11                 2.0    18.181818
+8         Education         Keyboard                 42                 6.0    14.285714
+9         Education          Monitor                 42                 2.0     4.761905
+10        Education            Mouse                 42                 2.0     4.761905
+11        Education           Laptop                 29                 1.0     3.448276
+12        Education       Headphones                 17                 0.0     0.000000
+13        Education           Tablet                 12                 0.0     0.000000
+15        Education  Docking Station                 10                 0.0     0.000000
+19       Enterprise          Monitor                 35                 4.0    11.428571
+23       Enterprise           Webcam                  9                 1.0    11.111111
+18       Enterprise         Keyboard                 37                 4.0    10.810811
+17       Enterprise            Mouse                 44                 3.0     6.818182
+21       Enterprise           Tablet                 17                 1.0     5.882353
+16       Enterprise           Laptop                 45                 1.0     2.222222
+20       Enterprise       Headphones                 25                 0.0     0.000000
+22       Enterprise  Docking Station                 15                 0.0     0.000000
+28   Small Business          Monitor                 21                 3.0    14.285714
+24   Small Business         Keyboard                 37                 2.0     5.405405
+26   Small Business       Headphones                 27                 1.0     3.703704
+25   Small Business            Mouse                 34                 1.0     2.941176
+27   Small Business           Laptop                 27                 0.0     0.000000
+29   Small Business           Tablet                 12                 0.0     0.000000
