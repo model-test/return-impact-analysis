@@ -1,0 +1,42 @@
+Total Return Revenue per Product:
+product
+Laptop        10318.84
+Monitor        8247.64
+Keyboard       3665.21
+Webcam         1250.60
+Tablet          931.48
+Mouse           844.74
+Headphones      351.01
+Name: revenue, dtype: float64
+
+Total Return Revenue per Region:
+region
+South Florida      8397.97
+Southeast          6353.59
+Central Florida    3936.32
+Southwest          3031.21
+Northeast          1672.86
+Midwest            1391.51
+North Florida       826.06
+Name: revenue, dtype: float64
+
+Average Revenue, Profit, and Profit Margin of Returned Orders:
+revenue              582.034545
+profit               103.041364
+profit_margin_pct      0.160975
+
+Average Revenue, Profit, and Profit Margin of Non-Returned Orders:
+revenue              842.947672
+profit               281.712077
+profit_margin_pct      0.341462
+
+Total Revenue of All Orders (Non-Returned and Returned):
+   total_revenue
+0      662877.96
+
+Total Revenue of All Returned Orders:
+   total_returned_revenue
+0                25609.52
+
+Percentage of Revenue From Returned Orders:
+3.86
