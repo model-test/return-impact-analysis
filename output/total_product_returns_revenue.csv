@@ -1,9 +1,0 @@
-product
-Laptop        10318.84
-Monitor        8247.64
-Keyboard       3665.21
-Webcam         1250.60
-Tablet          931.48
-Mouse           844.74
-Headphones      351.01
-Name: revenue, dtype: float64
