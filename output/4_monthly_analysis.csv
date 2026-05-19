@@ -1,0 +1,79 @@
+Total Monthly Orders:
+month
+Mar    77
+Jul    75
+Feb    72
+Apr    69
+Jan    69
+Dec    67
+May    67
+Aug    66
+Sep    65
+Oct    61
+Jun    57
+Nov    55
+dtype: int64
+
+Total Returned Orders per Month:
+month
+Feb    8
+Dec    7
+Oct    5
+Apr    4
+Nov    4
+Jan    4
+Mar    3
+Jun    2
+May    2
+Jul    2
+Sep    2
+Aug    1
+dtype: int64
+
+Return Rate per Month:
+month
+Feb    11.111111
+Dec    10.447761
+Oct     8.196721
+Nov     7.272727
+Jan     5.797101
+Apr     5.797101
+Mar     3.896104
+Jun     3.508772
+Sep     3.076923
+May     2.985075
+Jul     2.666667
+Aug     1.515152
+dtype: float64
+
+Total Returned Revenue per Month:
+month
+Dec    6522.61
+Feb    4429.74
+Sep    3557.05
+Jan    2841.64
+Oct    2415.88
+Apr    1928.25
+Mar    1335.16
+Nov    1015.90
+Aug     515.41
+May     494.47
+Jul     357.69
+Jun     195.72
+Name: revenue, dtype: float64
+
+Total Monthly Revenue:
+month
+Oct    64630.07
+Mar    62784.25
+May    61956.78
+Jul    61931.64
+Jan    59561.77
+Aug    56202.59
+Apr    56179.22
+Feb    48641.60
+Sep    44182.13
+Dec    42305.98
+Nov    40842.74
+Jun    38049.67
+Name: revenue, dtype: float64
