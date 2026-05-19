@@ -1,5 +1,39 @@
 import pandas as pd
 import sqlite3
+import matplotlib.pyplot as plt
+
+#-------------------------
+# Helper Functions
+#-------------------------
+
+def count_by(df, columns, count_name=None, as_dataframe=False):
+    counts = df.groupby(columns).size()
+
+    if as_dataframe:
+        return (
+            counts
+            .reset_index(name=count_name or "count")
+            .sort_values(by=[columns[0], count_name], ascending=[True, False])
+        )
+
+    return counts.sort_values(ascending=False)
+
+
+def calculate_return_rate(returned_count, total_count):
+    return (
+        returned_count
+        .div(total_count)
+        .mul(100)
+        .fillna(0)
+        .sort_values(ascending=False)
+    )
+
+def sum_by(df, group_cols, value_cols):
+    return (
+        df.groupby(group_cols)[value_cols]
+        .sum()
+        .sort_values(ascending=False)
+    )
 
 #-------------------------
 # Data Loading + Cleaning
@@ -16,6 +50,7 @@ df["order_date"] = pd.to_datetime(df["order_date"], origin="1899-12-30", unit="D
 conn = sqlite3.connect("data/sales_project.db")
 
 df.to_sql("sales", conn, if_exists="replace", index=False)
+
 
 #-------------------------
 # Return Impact Analysis
@@ -221,13 +256,13 @@ FINDINGS:
 # How many total orders exist for each segment-product combination?
 total_segment_orders_count = df.groupby(["customer_segment", "product"]).size().reset_index(name="order_count").sort_values(by=["customer_segment", "order_count"], ascending=[True, False])
 
-print(total_segment_orders_count)
+#print(total_segment_orders_count)
 
 
 # How many returned orders exist for each segment-product combination?
 total_segment_orders_returns_count = returns_df.groupby(["customer_segment", "product"]).size().reset_index(name="order_count").sort_values(by=["customer_segment", "order_count"], ascending=[True, False])
 
-print(total_segment_orders_returns_count)
+#print(total_segment_orders_returns_count)
 
 
 # Return Rate calculations per product per customer segment
@@ -244,7 +279,7 @@ final_segment_product_return_rates = merged_segment_order_count_df.sort_values(
     ascending=[True, False]
 )
 
-print(final_segment_product_return_rates.to_string())
+#print(final_segment_product_return_rates.to_string())
 
 """
 FINDINGS:
@@ -262,3 +297,93 @@ FINDINGS:
 12. Docking Station is the proportionally best-performing product due to its 0% return rate across all customer segments despite existing orders, though it is still amongst one of the least ordered across all customer segments
 13. Headphones is the proportionally second best-performing product due to its very low return rate across most customer segments and moderate total orders, being more practically successful than Docking Station due to higher total orders across most customer segments
 """
+
+#-------------------------
+# Monthly Analysis
+#-------------------------
+
+
+# What months had the most total orders?
+total_monthly_orders = count_by(df, "month")
+#print(total_monthly_orders)
+
+
+# Which months had the most returns?
+total_monthly_returned_orders = count_by(returns_df, "month")
+#print(total_monthly_returned_orders)
+
+
+# What is the return rate per month?
+return_rate_per_month = calculate_return_rate(total_monthly_returned_orders, total_monthly_orders)
+#print(return_rate_per_month)
+
+
+# Which months generates the most financial loss from returns?
+total_monthly_returned_revenue = sum_by(returns_df, "month", "revenue")
+#print(total_monthly_returned_revenue)
+
+
+# How much total revenue does each month generate?
+total_monthly_revenue = sum_by(df[df["returned"] == "no"], "month", "revenue")
+#print(total_monthly_revenue)
+
+"""
+FINDINGS:
+1. March is the month with most total orders at 77 closely followed by July at 75 and February at 72.
+2. February is the month with most total returned orders at 8 very closely followed by December at 7 and October at 5.
+3. February is the month with the highest total return rate at 11% very closely followed by December at 10% and October at 8%.
+4. December is the month with the highest financial loss from returned orders at over $6.5K followed by February at $4.4K and September at $3.5K.
+5. December is the financially worst-performing month due to its moderate amount of orders yet high return rate.
+6. February is the proportionally worst-performing month despite its high order count due to it having the most returned orders and highest return rate.
+7. March and July are very similar and almost tied for being one of the proportionally best-performing months due to their high amount of orders yet very low and similar return rates with July taking the edge with slightly lower total returned orders, notably lower financial loss, and slightly lower return rate, though also has slightly lower total orders than March and generates $852.61 less total revenue.
+8. August is the proportionally best-performing month due to its moderate amount of orders yet extremely low return rate at 1% while being the 6th month with the highest total revenue at $5.6K and a total financial loss of only $515.41. Only 1 order has been returned.
+9. October is the month that generates the most revenue at $6.4K closely followed by March at $6.2K, May at $6.1K, and July at $6.1K.
+"""
+
+#-------------------------
+# Monthly Return Trend Visualizations
+#-------------------------
+
+# Return rate per month
+ax = return_rate_per_month.plot(kind="bar", figsize=(10, 6))
+
+ax.bar_label(ax.containers[0], fmt="%.1f%%", padding=3, fontweight="bold")
+plt.title("Return Rate per Month")
+plt.xlabel("Month")
+plt.ylabel("Return Rate Percentage")
+
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.grid(color="lightgray", alpha=0.3)
+plt.savefig("plots/return_rate_per_month.png")
+plt.show()
+
+
+# Returned Revenue per Month
+ax = total_monthly_returned_revenue.plot(kind="barh", figsize=(10, 6), color="#1F77B4")
+
+ax.bar_label(ax.containers[0], fmt="$%.2f", padding=3, fontweight="bold")
+plt.title("Returned Revenue per Month")
+plt.xlabel("Returned Revenue")
+plt.ylabel("Month")
+
+plt.yticks(rotation=45)
+ax.set_xlim(right=ax.get_xlim()[1] * 1.15)
+plt.grid(color="lightgray", alpha=0.3)
+plt.savefig("plots/returned_revenue_per_month.png", bbox_inches="tight")
+plt.show()
+
+
+# Total Revenue per Month
+ax = total_monthly_revenue.plot(kind="barh", figsize=(10, 6), color="#1F77B4")
+
+ax.bar_label(ax.containers[0], fmt="$%.2f", padding=3, fontweight="bold")
+plt.title("Total Revenue per Month")
+plt.xlabel("Revenue")
+plt.ylabel("Month")
+
+plt.yticks(rotation=45)
+ax.set_xlim(right=ax.get_xlim()[1] * 1.15)
+plt.grid(color="gray", alpha=0.3)
+plt.savefig("plots/total_revenue_per_month.png", bbox_inches="tight")
+plt.show()
