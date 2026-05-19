@@ -30,6 +30,11 @@
 16. How many total orders exist for each segment-product combination?
 17. How many returned orders exist for each segment-product combination?
 18. What is the return rate for each product within each customer segment?
+19. Which months have had the most total orders?
+20. Which months have had the most returns?
+21. What is the return rate per month?
+22. Which months generate the most financial loss from returns?
+23. How much total revenue does each month generate?
 
 ## Key Findings
 ### Return Impact Analysis
@@ -71,8 +76,17 @@
 - Webcam and Monitor are both the proportionally worst-performing products across customer segments with Webcam taking the edge due to Webcam taking up two of the highest return rates despite being ordered less than Monitor across all customer segments
 - Docking Station is the proportionally best-performing product due to its 0% return rate across all customer segments despite existing orders, though it is still amongst one of the least ordered across all customer segments
 - Headphones is the proportionally second best-performing product due to its very low return rate across most customer segments and moderate total orders, being more practically successful than Docking Station due to higher total orders across most customer segments
+### Monthly Analysis
+- March is the month with most total orders at 77 closely followed by July at 75 and February at 72.
+- February is the month with most total returned orders at 8 very closely followed by December at 7 and October at 5.
+- February is the month with the highest total return rate at 11% very closely followed by December at 10% and October at 8%.
+- December is the month with the highest financial loss from returned orders at over $6.5K followed by February at $4.4K and September at $3.5K.
+- December is the financially worst-performing month due to its moderate amount of orders yet high return rate.
+- February is the proportionally worst-performing month despite its high order count due to it having the most returned orders and highest return rate.
+- March and July are very similar and almost tied for being one of the proportionally best-performing months due to their high amount of orders yet very low and similar return rates with July taking the edge with slightly lower total returned orders, notably lower financial loss, and slightly lower return rate, though also has slightly lower total orders than March and generates $852.61 less total revenue.
+- August is the proportionally best-performing month due to its moderate amount of orders yet extremely low return rate at 1% while being the 6th month with the highest total revenue at $5.6K and a total financial loss of only $515.41. Only 1 order has been returned.
+- October is the month that generates the most revenue at $6.4K closely followed by March at $6.2K, May at $6.1K, and July at $6.1K.
 
 ## Future Improvements on This Project
-- Add visualizations via Matplotlib
 - Investigate why specific regions experience higher returns
 - Build a dashboard version of the analysis
