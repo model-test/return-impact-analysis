@@ -10,6 +10,7 @@
 - SQLite
 - SQL
 - openpyxl
+- Matplotlib
 
 ## Questions
 1. Which products generate the highest returned revenue?
