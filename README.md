@@ -1,8 +1,11 @@
-# Return Impact Analysis Using Python, Pandas, and SQL
+# Business Performance and Return Impact Analysis Using Python, Pandas, and SQL
 
-#Project Overview
-- This project analyzes how returned orders affect profitability using Python, Pandas, and SQL (sqlite).
-- The analysis focuses on which products and regions generate the most returned revenue and comparing the profitability of returned vs non-returned orders.
+## Project Overview
+This project analyzes sales and return data to uncover patterns affecting profitability and business performance.
+
+Using Python, Pandas, SQLite, and Matplotlib, the project examines products, customer segments, regions, and monthly trends to identify both operational risks and high-performing areas of the business.
+
+The analysis combines revenue, profit, profit margins, order volume, and return rates to evaluate overall product performance and communicate findings through visualizations and business-focused insights.
 
 ## Tools Used
 - Python
