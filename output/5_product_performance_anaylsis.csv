@@ -1,0 +1,35 @@
+Total Revenue per Product:
+product
+Laptop             387748.18
+Monitor             94257.40
+Tablet              62946.99
+Keyboard            33059.52
+Headphones          31220.15
+Docking Station     26471.14
+Mouse               16470.51
+Webcam              10704.07
+Name: revenue, dtype: float64
+
+Total Profit per Product:
+product
+Laptop             125082.19
+Monitor             30230.46
+Tablet              22061.57
+Headphones          10686.53
+Keyboard            10640.34
+Docking Station     10000.30
+Mouse                5486.01
+Webcam               3320.75
+Name: profit, dtype: float64
+
+Average Profit Margin per Product:
+product
+Docking Station    36.813913
+Tablet             34.667391
+Headphones         33.636596
+Mouse              33.347654
+Laptop             32.814701
+Keyboard           32.591457
+Webcam             32.382955
+Monitor            31.928618
+Name: profit_margin_pct, dtype: float64
