@@ -35,6 +35,18 @@
 21. What is the return rate per month?
 22. Which months generate the most financial loss from returns?
 23. How much total revenue does each month generate?
+24. Which products generate the most revenue?
+25. Which products generate the most profit?
+26. Which products have the highest average profit margin?
+27. How dominant is Laptop compared to the other products? (Revenue by Product)
+28. Which products form the "middle tier"? (Revenue by Product)
+29. Does the ranking change at all? (Profit by Product)
+30. Does a product become more impressive when viewed through profit rather than revenue? (Profit by Product)
+31. Does a product become less impressive? (Profit by Product)
+32. Which products are most efficient? (Profit Margin %)
+33. Which are least efficient? (Profit Margin %)
+34. Does efficiency match revenue leadership? (Profit Margin %)
+
 
 ## Key Findings
 ### Return Impact Analysis
@@ -86,7 +98,25 @@
 - March and July are very similar and almost tied for being one of the proportionally best-performing months due to their high amount of orders yet very low and similar return rates with July taking the edge with slightly lower total returned orders, notably lower financial loss, and slightly lower return rate, though also has slightly lower total orders than March and generates $852.61 less total revenue.
 - August is the proportionally best-performing month due to its moderate amount of orders yet extremely low return rate at 1% while being the 6th month with the highest total revenue at $5.6K and a total financial loss of only $515.41. Only 1 order has been returned.
 - October is the month that generates the most revenue at $6.4K closely followed by March at $6.2K, May at $6.1K, and July at $6.1K.
+## Product Performance Analysis
+- Laptop generates the highest total revenue at $387,748.18
+- Webcam generates the least total revenue at $10,704.07
+- Laptop generates the highest total profit at $125,082.19
+- Webcam generates the least total profit at $3,320.75
+- Docking Station has the highest average profit margin at 36.8%
+- Monitor has the least average profit margin at 31.9%
+- Webcam is a low-revenue product with a high return rate and second-to-lowest profit margin percentage, making it one of the weakest overall products
+- Docking Station is a low-to-moderate revenue product with no return rate and the highest profit margin percentage, making it one of the most stable products, but its overall business impact is limited when compared to products such as Laptop and Monitor
+- Laptop appears to be the strongest overall product due to generating the highest revenue and profit margin percentage.
+## Product Performance Visualization
+- Laptop is significantly more dominant compared to the other products
+- The products that form the middle tier are Keyboard, Headphones, and Docking Station
+- The ranking swaps between Keyboard and Headphones with Headphones ranking over Keyboard
+- Determining whether a product becomes more impressive when viewed through profit rather than revenue depends on knowing both the profit and profit margin percentage
+- Docking Station and Tablet are the most efficient
+- Webcam and Monitor are the least efficient
+- Efficiency doesn't match the revenue leadership as Docking Station leads in profit margin but is third to the bottom in revenue generation.
+- Monitor generates the second-highest total revenue yet has the lowest profit margin percentage, meaning it relies on a high sales volume to generate meaningful profit, so if the sales volume decreases, there is little margin cushion to absorb the loss.
 
 ## Future Improvements on This Project
-- Investigate why specific regions experience higher returns
 - Build a dashboard version of the analysis
