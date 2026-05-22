@@ -54,6 +54,8 @@ This analysis examines 800+ sales orders to understand the financial impact of r
 - No customer review text or detailed return reasons available.
 - **Next step**: Convert key insights into an interactive Power BI or Tableau dashboard.
 
+See [detailed_analysis.md](detailed_analysis.md) for the full list of business questions and detailed findings.
+
 ## How to Run
 ```bash
 pip install -r requirements.txt
