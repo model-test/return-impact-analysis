@@ -1,126 +1,60 @@
-# Business Performance and Return Impact Analysis Using Python, Pandas, and SQL
+# Return Impact Analysis - Sales & Profitability Study
+
+**End-to-end analysis** of how product returns affect revenue, profit, and margins in a retail dataset. This project identifies high-performing products, high-risk segments, and actionable business recommendations using Python, Pandas, and SQL.
 
 ## Project Overview
-This project analyzes sales and return data to uncover patterns affecting profitability and business performance.
+This analysis examines 800+ sales orders to understand the financial impact of returns across products, regions, customer segments, and time periods. The goal was to answer critical business questions about profitability drivers and return-related risks.
 
-Using Python, Pandas, SQLite, and Matplotlib, the project examines products, customer segments, regions, and monthly trends to identify both operational risks and high-performing areas of the business.
-
-The analysis combines revenue, profit, profit margins, order volume, and return rates to evaluate overall product performance and communicate findings through visualizations and business-focused insights.
-
-## Tools Used
+## Technologies Used
 - Python
 - Pandas
-- SQLite
-- SQL
-- openpyxl
+- SQLite (SQL)
 - Matplotlib
+- openpyxl
 
-## Questions
-1. Which products generate the highest returned revenue?
-2. Which regions generate the highest returned revenue?
-3. Do returned orders have worse average revenue, profit, and profit margins than non-returned orders?
-4. What percentage of total revenue came from returned orders?
-5. How many total orders does each product have?
-6. How many returned orders does each product have?
-7. How many total orders does each region have?
-8. How many returned orders does each region have?
-9. What is the return rate per region?
-10. What percentage does each region take up in total returned orders?
-11. Which segment places the most orders?
-12. Which segment generates the most returns?
-13. Which segment has the highest return rate?
-14. Which segment contributes most to returned revenue?
-15. Which customer segment is most profitable on average?
-16. How many total orders exist for each segment-product combination?
-17. How many returned orders exist for each segment-product combination?
-18. What is the return rate for each product within each customer segment?
-19. Which months have had the most total orders?
-20. Which months have had the most returns?
-21. What is the return rate per month?
-22. Which months generate the most financial loss from returns?
-23. How much total revenue does each month generate?
-24. Which products generate the most revenue?
-25. Which products generate the most profit?
-26. Which products have the highest average profit margin?
-27. How dominant is Laptop compared to the other products? (Revenue by Product)
-28. Which products form the "middle tier"? (Revenue by Product)
-29. Does the ranking change at all? (Profit by Product)
-30. Does a product become more impressive when viewed through profit rather than revenue? (Profit by Product)
-31. Does a product become less impressive? (Profit by Product)
-32. Which products are most efficient? (Profit Margin %)
-33. Which are least efficient? (Profit Margin %)
-34. Does efficiency match revenue leadership? (Profit Margin %)
+## Key Insights
+
+**Impact of Returns**
+- Returned orders show significantly lower average revenue and profit compared to non-returned orders.
+- Certain products and regions have disproportionately high return rates, creating notable financial drag.
+
+**Product Performance**
+- **Laptops** dominate in total revenue and profit.
+- **Docking Station** stands out as highly efficient with strong margins and low/zero returns.
+- **Webcam** is a weak performer — low revenue combined with high return rates.
+
+**Segment & Regional Findings**
+- Enterprise segment generates high volume but lower average profitability.
+- Small Business segment shows stronger profit margins.
+- South Florida and Southwest regions show elevated return activity.
+
+**Monthly Trends**
+- December and February show higher return rates and increased losses.
+- August performs strongly with solid revenue and lower returns.
+
+## Visualizations
+
+![Total Revenue by Product](plots/total_revenue_per_product.png)
+![Total Profit by Product](plots/total_profit_per_product.png)
+![Average Profit Margin](plots/average_profit_margin_percentage.png)
+![Return Rate per Month](plots/return_rate_per_month.png)
+![Returned Revenue per Month](plots/returned_revenue_per_month.png)
+![Total Revenue per Month](plots/total_revenue_per_month.png)
 
 
-## Key Findings
-### Return Impact Analysis
-- Laptops have the highest return value
-- South Florida has the highest return revenue
-- Returned orders ahve worse average revenue, profit, and profit margins than non-returned orders
-- 4% of total revenue came from returned orders
-### Product Return Rate Analysis
-- Mouse has the highest product order count despite Keyboard generating more revenue
-- Keyboard is the product returned the most
-- Webcam has the highest return rate despite it being returned only 5 times
-- Webcam is the worst-performing product proportionately due to its high return rate and lower total returns (Implementing a customer review system may allow for the business to identify why certain products experience higher return rates)
-- Docking Station is the best-performing product proportionately due to it having a return rate of 0% while still having existing orders
-- High returned revenue does not necessarily imply the highest return rate.
-### Regional Return Rate Analysis
-- Southeast has the most total orders, North Florida has the least.
-- South Florida and Southeast are tied for most total returned orders, North Florida has the least.
-- Southwest is the proportionately worst-performing region due to it having an 8.75% return rate despite having only been returned 7 times
-- South Florida is the region accounting for most of the total revenue of returned orders
-- North Florida is the proportionately best-performing region due to it having a 1.3% return rate while having 73 total orders and only 1 return
-### Customer Segment Return Analysis
-- Enterprise places the most orders
-- Enterprise generates the most returned orders, though is very closely followed by Education
-- Education has the highest return rate, though is very closely followed by Enterprise despite Enterprise's higher total return count
-- Consumer contributes most to returned revenue despite Enterprise and Education both having more total returns
-- Small Business is the most profitable on average, though is very closely followed by Consumer, despite generating the least amount of revenue.
-- Enterprise is the least profitable on average despite it having the most orders.
-### Product + Segment Analysis
-- Consumer has the highest amount of Mouse orders respective to its segment
-- Education has ordered Keyboard, Monitor, and Mouse tied as the most ordered respective to its segment
-- Enterprise has the highest amount of Laptop orders closely followed by Mouse orders respective to its segment
-- Small Business has the highest amount of Keyboard orders closely followed by Mouse orders respective to its segment
-- Consumer has Laptop, Monitor, Mouse, and Webcam tied at the top for most returned orders respective to its segment
-- Education has Keyboard as the most returned product respective to its segment
-- Enterprise has Keyboard and Monitor tied to the top closely followed by Mouse for most returned orders respective to its segment
-- Small Business has Monitor closely followed by Keyboard as the most returned product respective to its segment
-- Webcam has the highest return rate for Consumer (13%) and Education (18%).
-- Monitor has the highest return rate for Enterprise (11%) and Small Business (14%).
-- Webcam and Monitor are both the proportionally worst-performing products across customer segments with Webcam taking the edge due to Webcam taking up two of the highest return rates despite being ordered less than Monitor across all customer segments
-- Docking Station is the proportionally best-performing product due to its 0% return rate across all customer segments despite existing orders, though it is still amongst one of the least ordered across all customer segments
-- Headphones is the proportionally second best-performing product due to its very low return rate across most customer segments and moderate total orders, being more practically successful than Docking Station due to higher total orders across most customer segments
-### Monthly Analysis
-- March is the month with most total orders at 77 closely followed by July at 75 and February at 72.
-- February is the month with most total returned orders at 8 very closely followed by December at 7 and October at 5.
-- February is the month with the highest total return rate at 11% very closely followed by December at 10% and October at 8%.
-- December is the month with the highest financial loss from returned orders at over $6.5K followed by February at $4.4K and September at $3.5K.
-- December is the financially worst-performing month due to its moderate amount of orders yet high return rate.
-- February is the proportionally worst-performing month despite its high order count due to it having the most returned orders and highest return rate.
-- March and July are very similar and almost tied for being one of the proportionally best-performing months due to their high amount of orders yet very low and similar return rates with July taking the edge with slightly lower total returned orders, notably lower financial loss, and slightly lower return rate, though also has slightly lower total orders than March and generates $852.61 less total revenue.
-- August is the proportionally best-performing month due to its moderate amount of orders yet extremely low return rate at 1% while being the 6th month with the highest total revenue at $5.6K and a total financial loss of only $515.41. Only 1 order has been returned.
-- October is the month that generates the most revenue at $6.4K closely followed by March at $6.2K, May at $6.1K, and July at $6.1K.
-## Product Performance Analysis
-- Laptop generates the highest total revenue at $387,748.18
-- Webcam generates the least total revenue at $10,704.07
-- Laptop generates the highest total profit at $125,082.19
-- Webcam generates the least total profit at $3,320.75
-- Docking Station has the highest average profit margin at 36.8%
-- Monitor has the least average profit margin at 31.9%
-- Webcam is a low-revenue product with a high return rate and second-to-lowest profit margin percentage, making it one of the weakest overall products
-- Docking Station is a low-to-moderate revenue product with no return rate and the highest profit margin percentage, making it one of the most stable products, but its overall business impact is limited when compared to products such as Laptop and Monitor
-- Laptop appears to be the strongest overall product due to generating the highest revenue and profit margin percentage.
-## Product Performance Visualization
-- Laptop is significantly more dominant compared to the other products
-- The products that form the middle tier are Keyboard, Headphones, and Docking Station
-- The ranking swaps between Keyboard and Headphones with Headphones ranking over Keyboard
-- Determining whether a product becomes more impressive when viewed through profit rather than revenue depends on knowing both the profit and profit margin percentage
-- Docking Station and Tablet are the most efficient
-- Webcam and Monitor are the least efficient
-- Efficiency doesn't match the revenue leadership as Docking Station leads in profit margin but is third to the bottom in revenue generation.
-- Monitor generates the second-highest total revenue yet has the lowest profit margin percentage, meaning it relies on a high sales volume to generate meaningful profit, so if the sales volume decreases, there is little margin cushion to absorb the loss.
+## Actionable Recommendations
+1. Prioritize quality control and customer expectations for Webcam and other high-return products.
+2. Promote Docking Station more aggressively. It's very stable with excellent margins and low return risk.
+3. Review return policies or support processes in South Florida and Southwest regions.
+4. Develop targeted strategies to improve profitability in the Enterprise segment.
+5. Prepare inventory and support resources for higher return volumes in December/February.
 
-## Future Improvements on This Project
-- Build a dashboard version of the analysis
+## Limitations & Future Work
+- Dataset is synthetic and limited in size.
+- No customer review text or detailed return reasons available.
+- **Next step**: Convert key insights into an interactive Power BI or Tableau dashboard.
+
+## How to Run
+```bash
+pip install -r requirements.txt
+python analysis.py
